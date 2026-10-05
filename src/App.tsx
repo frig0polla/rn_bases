@@ -3,6 +3,7 @@ import { BasicTypes } from './typescript/BasicTypes'
 import { ObjectLiterals } from './typescript/ObjectLiterals'
 import { BasicFunctions } from './typescript/BasicFunctions'
 import { Counter } from './typescript/Counter'
+import { UsersPage } from './typescript/UsersPage'
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
 
       <Counter />
       
+      <UsersPage />
       </div>
     </>
   )

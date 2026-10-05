@@ -1,6 +1,14 @@
-import React from 'React'
+import React from 'react'
+import { UserRow } from './UserRow.tsx'
+import { useUsers } from '../hooks/useUsers.ts'
+
 
 export const UsersPage = () => {
+
+  const { users , nextPage ,previousPage} = useUsers();
+  
+  console.log(users);
+  
   return (
     <>
       <h3>Usuarios</h3>
@@ -13,19 +21,18 @@ export const UsersPage = () => {
           </tr>
         </thead>
         <tbody>
-          <tr className="p-2">
-            <td>
-              <img 
-                src="https://via.placeholder.com/150" 
-                className="rounded-full w-14" 
-                alt="User Avatar" 
-              />
-            </td>
-            <td>Antonio Calabuig</td>
-            <td>a.calabuigpuigvert@edu.gva.es</td>
-          </tr>
+
+          { 
+              users.map(user => 
+                  <UserRow key={user.id} user={user} />
+              )
+            
+          }
+          
         </tbody>
       </table>
+      <button onClick={ previousPage } className="p-2 bg-blue-500 text-white roundedxl">Anteriores</button>
+      <button onClick={ nextPage } className="p-2 bg-blue-500 text-white roundedxl">Siguientes</button>
     </>
   );
 };
